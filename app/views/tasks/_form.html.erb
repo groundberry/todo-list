@@ -1,27 +1,41 @@
 <%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+    <div class="errors-container">
+      <h2>
+        <%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:
+      </h2>
 
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+      <ul class="errors-list">
+        <% task.errors.full_messages.each do |message| %>
+          <li class="errors-item">
+            <%= message %>
+          </li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :task %>
-    <%= form.text_field :task, id: :task_task %>
-  </div>
+  <div class="form-container">
+    <div class="form-field">
+      <div class="form-label-container">
+        <%= form.label :task, class: 'form-label' %>
+      </div>
+      <div class="form-input-container">
+        <%= form.text_field :task, id: :task_task, class: 'form-input' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :completed %>
-    <%= form.check_box :completed, id: :task_completed %>
-  </div>
+    <div class="field form-field">
+      <div class="form-label-container">
+        <%= form.label :completed, class: 'form-label' %>
+      </div>
+      <div class="form-input-container">
+        <%= form.check_box :completed, id: :task_completed, class: 'form-input' %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field form-buttons">
+      <%= form.submit class: 'action-button' %>
+    </div>
   </div>
 <% end %>

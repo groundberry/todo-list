@@ -1,5 +1,7 @@
-<h1>New Task</h1>
+<h1 class="task-header">
+  New task
+</h1>
+
+<%= link_to 'Go back', tasks_path, class: ['action-button', 'back-button'] %>
 
 <%= render 'form', task: @task %>
-
-<%= link_to 'Back', tasks_path %>

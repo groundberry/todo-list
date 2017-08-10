@@ -10,6 +10,37 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
- */
+*/
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+button,
+input {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.notice-container:not(:empty) {
+  background-color: #76ac26;
+  color: #fff;
+  margin: 0;
+  padding: 15px 25px;
+}
+
+.errors-container {
+  background-color: #cc0000;
+  color: #fff;
+  margin: 0;
+  padding: 15px 25px;
+}

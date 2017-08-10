@@ -19,13 +19,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Task.count') do
       post tasks_url, params: { task: { completed: @task.completed, task: @task.task } }
     end
-
-    assert_redirected_to task_url(Task.last)
-  end
-
-  test "should show task" do
-    get task_url(@task)
-    assert_response :success
+    assert_redirected_to tasks_url
   end
 
   test "should get edit" do
@@ -35,14 +29,13 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should update task" do
     patch task_url(@task), params: { task: { completed: @task.completed, task: @task.task } }
-    assert_redirected_to task_url(@task)
+    assert_redirected_to tasks_url
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
       delete task_url(@task)
     end
-
     assert_redirected_to tasks_url
   end
 end
