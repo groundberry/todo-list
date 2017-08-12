@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  # GET /tasks/1
+  def show
+  end
+
   # GET /tasks/new
   def new
     @task = Task.new
@@ -60,6 +64,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:task, :completed, :due_date)
+      params.require(:task).permit(:task, :completed, :due_date, :details)
     end
 end

@@ -13,14 +13,7 @@
     <ul class="tasks-list">
       <% @tasks.todo.each do |task| %>
         <li class="tasks-item">
-          <div class="task-name">
-            <%= task.task %>
-            <% if task.due_date.present? %>
-              <time class="task-time <%= task.due_date <= Date.today ? 'is-due' : '' %>" datetime="<%= task.due_date.strftime('%FT%T') %>">
-                <%= task.due_date.strftime("%m/%d") %>
-              </time>
-            <% end %>
-          </div>
+          <%= render 'task', task: task %>
           <div class="task-buttons">
             <%= link_to fa_icon("pencil"), edit_task_path(task), class: 'task-button' %>
             <%= link_to fa_icon("trash-o"), task, class: 'task-button',
@@ -36,13 +29,14 @@
   </div>
 
   <div class="tasks-completed">
-    <h2 class="tasks-status">Completed</h2>
+    <h2 class="tasks-status">
+      Completed
+    </h2>
+
     <ul class="tasks-list">
       <% @tasks.completed.each do |task| %>
         <li class="tasks-item">
-          <div class="task-name">
-            <%= task.task %>
-          </div>
+          <%= render 'task', task: task %>
           <div class="task-buttons">
             <%= link_to fa_icon("trash-o"), task, class: 'task-button',
                         method: :delete, data: { confirm: 'Are you sure?' } %>

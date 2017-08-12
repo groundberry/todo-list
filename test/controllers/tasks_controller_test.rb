@@ -22,6 +22,11 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to tasks_url
   end
 
+  test "should show task" do
+    get task_url(@task)
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_task_url(@task)
     assert_response :success
