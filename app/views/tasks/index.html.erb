@@ -15,6 +15,11 @@
         <li class="tasks-item">
           <div class="task-name">
             <%= task.task %>
+            <% if task.due_date.present? %>
+              <time class="task-time <%= task.due_date <= Date.today ? 'is-due' : '' %>" datetime="<%= task.due_date.strftime('%FT%T') %>">
+                <%= task.due_date.strftime("%m/%d") %>
+              </time>
+            <% end %>
           </div>
           <div class="task-buttons">
             <%= link_to fa_icon("pencil"), edit_task_path(task), class: 'task-button' %>

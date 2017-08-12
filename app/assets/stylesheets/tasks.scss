@@ -55,6 +55,14 @@
   color: #76ac26;
 }
 
+.task-time {
+  color: #d3d3d3;
+}
+
+.task-time.is-due {
+  color: #cc0000;
+}
+
 .tasks-buttons {
   margin-top: 40px;
 }

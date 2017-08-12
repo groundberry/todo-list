@@ -25,6 +25,15 @@
       </div>
     </div>
 
+    <div class="form-field">
+      <div class="form-label-container">
+        <%= form.label :due_date, class: 'form-label' %>
+      </div>
+      <div class="form-input-container">
+        <%= form.date_field :due_date, id: :task_due_date, class: 'form-input' %>
+      </div>
+    </div>
+
     <div class="field form-field">
       <div class="form-label-container">
         <%= form.label :completed, class: 'form-label' %>
