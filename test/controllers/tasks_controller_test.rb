@@ -2,7 +2,8 @@ require 'test_helper'
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @task = tasks(:one)
+    sign_in users(:userOne)
+    @task = tasks(:validTask)
   end
 
   test "should get index" do
