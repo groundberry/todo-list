@@ -4,6 +4,8 @@
 
 <p class="notice-container"><%= notice %></p>
 
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>﻿
+
 <div class="tasks-container">
   <div class="tasks-todo">
     <h2 class="tasks-status">

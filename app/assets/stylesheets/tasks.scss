@@ -161,7 +161,7 @@
   float: right;
   position: absolute;
   top: 25px;
-  right: 25px;
+  right: 125px;
 }
 
 .action-button {
@@ -170,11 +170,42 @@
   color: #fff;
   font-size: inherit;
   text-decoration: none;
-  padding: 10px 30px;
+  padding: 10px 25px;
 }
 
 .action-button:hover {
   background-color: #fff;
   border-color: #76ac26;
   color: #76ac26;
+}
+
+.user-session-buttons {
+  display: grid;
+  float: right;
+  font-size: 1em;
+  grid-template-columns: [col] 60% [col] 60%;
+  grid-gap: 10px;
+  position: absolute;
+  text-align: center;
+  top: 25px;
+  right: 65px;
+}
+
+.sign-up-button {
+  grid-column: col 1;
+  padding: 10px;
+}
+
+.log-in-button {
+  grid-column: col 2;
+  padding: 10px;
+}
+
+.log-out-button {
+  cursor: pointer;
+  float: right;
+  padding: 10px 15px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
