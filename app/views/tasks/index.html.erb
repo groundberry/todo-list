@@ -12,14 +12,16 @@
 
     <ul class="tasks-list">
       <% @tasks.todo.each do |task| %>
-        <li class="tasks-item">
-          <%= render 'task', task: task %>
-          <div class="task-buttons">
-            <%= link_to fa_icon("pencil"), edit_task_path(task), class: 'task-button' %>
-            <%= link_to fa_icon("trash-o"), task, class: 'task-button',
-                        method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-        </li>
+        <% if task.user == current_user %>
+          <li class="tasks-item">
+            <%= render 'task', task: task %>
+            <div class="task-buttons">
+              <%= link_to fa_icon("pencil"), edit_task_path(task), class: 'task-button' %>
+              <%= link_to fa_icon("trash-o"), task, class: 'task-button',
+                          method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -35,13 +37,15 @@
 
     <ul class="tasks-list">
       <% @tasks.completed.each do |task| %>
-        <li class="tasks-item">
-          <%= render 'task', task: task %>
-          <div class="task-buttons">
-            <%= link_to fa_icon("trash-o"), task, class: 'task-button',
-                        method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-        </li>
+        <% if task.user == current_user %>
+          <li class="tasks-item">
+            <%= render 'task', task: task %>
+            <div class="task-buttons">
+              <%= link_to fa_icon("trash-o"), task, class: 'task-button',
+                          method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
